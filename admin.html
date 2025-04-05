@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Gerenciar Produtos</title>
+    <link rel="stylesheet" href="css/style-admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <h2>Painel de Administração</h2>
+        <button onclick="logout()">Sair</button>
+
+        <h3>Adicionar Produto</h3>
+        <form id="productForm">
+            <input type="text" id="title" placeholder="Nome do Produto" required>
+            <input type="number" id="price" placeholder="Preço" required>
+            <input type="text" id="image" placeholder="URL da Imagem" required>
+            <button type="submit">Adicionar</button>
+        </form>
+
+        <h3>Lista de Produtos</h3>
+        <div id="productList"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", fetchProducts);
+        
+        async function fetchProducts() {
+            const response = await fetch('http://localhost:5000/api/products');
+            const products = await response.json();
+            const productList = document.getElementById("productList");
+
+            productList.innerHTML = "";
+            products.forEach(prod => {
+                const div = document.createElement("div");
+                div.innerHTML = `
+                    <h4>${prod.title} - ${prod.price} MZN</h4>
+                    <img src="${prod.image}" width="100">
+                `;
+                productList.appendChild(div);
+            });
+        }
+
+        document.getElementById('productForm').addEventListener('submit', async function (event) {
+    event.preventDefault();
+    const title = document.getElementById('title').value;
+    const price = document.getElementById('price').value;
+    const image = document.getElementById('image').value;
+
+    const token = localStorage.getItem('token');
+    if (!token) {
+        alert("Você precisa fazer login!");
+        window.location.href = "login.html";
+        return;
+    }
+
+    const response = await fetch('http://localhost:5000/api/products', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ title, price, image })
+    });
+
+    if (response.ok) {
+        alert("Produto adicionado com sucesso!");
+        carregarProdutos(); // Atualiza a lista de produtos
+    } else {
+        alert("Erro ao adicionar produto");
+    }
+});
+
+
+        function logout() {
+            localStorage.removeItem('token');
+            window.location.href = "login.html";
+        }
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            alert("Acesso negado! Faça login primeiro.");
+            window.location.href = "login.html";
+        }
+    });
+
+    function logout() {
+    localStorage.removeItem('token'); // Remove o token
+    window.location.href = "login.html"; // Redireciona para login
+}
+
+
+    </script>
+</body>
+</html>

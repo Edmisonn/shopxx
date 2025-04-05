@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Pagamento</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;/*podes mudar a estilizacao*/
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .payment-container {
+            width: 90%;
+            max-width: 600px;
+            /*background-color: #ffffff;*/
+            background-color: #94a3b8;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .payment-header {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .product-info {
+            margin-bottom: 20px;
+        }
+        .product-info p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        .options {
+            margin-bottom: 20px;
+        }
+        .option {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .option:hover {
+            background-color: #f9f9f9;
+            border-color: #aaa;
+        }
+        .option input {
+            margin-right: 15px;
+        }
+        .option-title {
+            font-weight: bold;
+        }
+        .user-details {
+            margin-bottom: 20px;
+        }
+        .user-details input, .user-details textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+        .user-details textarea {
+            resize: none;
+            height: 80px;
+        }
+        .payment-btn {
+            background-color: #28a745;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .payment-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="payment-container">
+        <div class="payment-header">Página de Pagamento</div>
+        <div class="product-info">
+            <p><strong>Produto:</strong> <span id="product-name"></span></p>
+            <p><strong>Preço:</strong> <span id="product-price"></span></p>
+        </div>
+
+        <div class="options">
+            <div class="option">
+                <input type="radio" name="payment-option" id="option1">
+                <label for="option1">
+                    <span class="option-title">aqui bota aquelas cenas</span><!----faca edites aqui-->
+                    <p>aqui explique oque e essa tal cena</p>
+                </label>
+            </div>
+            <div class="option">
+                <input type="radio" name="payment-option" id="option2">
+                <label for="option2">
+                    <span class="option-title">faca o mesmo para aqui</span>
+                    <p>aqui tambem</p>
+                </label>
+            </div>
+            <div class="option">
+                <input type="radio" name="payment-option" id="option3">
+                <label for="option3">
+                    <span class="option-title">Pagamento na Entrega</span>
+                    <p>Pague quando receber o produto.</p>
+                </label>
+            </div>
+        </div>
+
+        <div class="user-details">
+            <input type="text" placeholder="Seu Nome" id="user-name" required><!--ESsa parte nao mecha-->
+            <input type="tel" placeholder="Seu Telefone" id="user-phone" required>
+            <input type="text" placeholder="Endereço" id="user-address" required>
+            <textarea placeholder="Comentários" id="user-comments"></textarea>
+        </div>
+
+        <button class="payment-btn" onclick="redirectToWhatsApp()">Finalizar Pagamento</button>
+    </div>
+
+    <script>
+          const productName = localStorage.getItem('productName');
+        const productPrice = localStorage.getItem('productPrice');
+
+        if (productName && productPrice) {
+    
+            document.getElementById('product-name').textContent = productName;
+            document.getElementById('product-price').textContent = productPrice;
+        } else {
+        
+            document.querySelector('.product-info').innerHTML = '<p>Produto não encontrado.</p>';
+        }
+        function redirectToWhatsApp() {
+            const name = document.getElementById('user-name').value;
+            const phone = document.getElementById('user-phone').value;
+            const address = document.getElementById('user-address').value;
+            const comments = document.getElementById('user-comments').value;
+
+            if (!name || !phone || !address) {
+                alert('Por favor, preencha todos os campos obrigatórios.');
+                return;
+            }
+
+            const message = `Olá, gostaria de finalizar a compra do produto.\n\n` +
+                `Nome: ${name}\n` +
+                `Telefone: ${phone}\n` +
+                `Endereço: ${address}\n` +
+                `Comentários: ${comments || 'Nenhum'}`;                                  //sua atencao aqui, tem um site para botares seu numero
+
+            const whatsappUrl = `https://wa.me/+258###########?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>

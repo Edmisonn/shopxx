@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .cart-container {
+            width: 90%;
+            max-width: 600px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .cart-header {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        .remove-btn {
+            background-color: #dc3545;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .remove-btn:hover {
+            background-color: #c82333;
+        }
+        .cart-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+        }
+        .cart-btn:hover {
+            background-color: #218838;
+        }
+        .total-price {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="cart-container">
+        <div class="cart-header">Carrinho de Compras</div>
+        <div id="cart-items"></div>
+        <div class="total-price" id="total-price"></div>
+        <button class="cart-btn" onclick="finalizarCompra()">Finalizar Compra</button>
+    </div>
+
+                        <!---essa parte nao mexe-->
+    <script>
+        // Carregar o carrinho do localStorage
+        let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+        // Exibir os itens do carrinho
+        const cartItemsContainer = document.getElementById('cart-items');
+        const totalPriceContainer = document.getElementById('total-price');
+        updateCartDisplay();
+
+        // Função para exibir os itens do carrinho
+        function updateCartDisplay() {
+            cartItemsContainer.innerHTML = '';
+            let totalPrice = 0;
+
+            if (carrinho.length > 0) {
+                carrinho.forEach((item, index) => {
+                    const itemElement = document.createElement('div');
+                    itemElement.classList.add('cart-item');
+                    itemElement.innerHTML = `
+                        <span>${item.name}</span>
+                        <span>${item.price}</span>
+                        <button class="remove-btn" onclick="removerDoCarrinho(${index})">Remover</button>
+                    `;
+                    cartItemsContainer.appendChild(itemElement);
+
+                    // Calcular o preço total
+                    totalPrice += parseFloat(item.price.replace(" MZN", "").replace(",", "."));
+                });
+
+                // Exibir o preço total
+                totalPriceContainer.innerText = `Total: ${totalPrice.toFixed(2).replace(".", ",")} MZN`;
+            } else {
+                cartItemsContainer.innerHTML = '<p>Seu carrinho está vazio.</p>';
+                totalPriceContainer.innerText = '';
+            }
+        }
+
+        // Função para remover um item do carrinho
+        function removerDoCarrinho(index) {
+            // Remove o item selecionado
+            carrinho.splice(index, 1);
+
+            // Atualiza o carrinho no localStorage
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+            // Atualiza a exibição do carrinho
+            updateCartDisplay();
+        }
+
+        // Função para redirecionar para a página de pagamento com o preço total
+        function finalizarCompra() {
+            // Armazenar o preço total no localStorage
+            localStorage.setItem('totalPreco', totalPriceContainer.innerText);
+
+            // Redirecionar para a página de pagamento
+            window.location.href = "pagina-de-pagamento.html";
+        }
+    </script>
+</body>
+</html>

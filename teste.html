@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa de Produtos</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .search-container {
+            position: relative;
+        }
+
+        .search-bar {
+            display: none;
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f4f4f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .search-results {
+            margin-top: 20px;
+        }
+
+        .product {
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .not-found {
+            color: red;
+            font-weight: bold;
+        }
+
+        .search-icon {
+            cursor: pointer;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <!-- Ícone de Pesquisa -->
+        <a href="#" id="search-icon">
+            <i class="ri-search-line search-icon"></i>
+        </a>
+
+        <!-- Barra de Pesquisa -->
+        <div class="search-bar" id="search-bar">
+            <input type="text" id="search-input" placeholder="Pesquise um produto...">
+        </div>
+    </div>
+
+    <!-- Resultados -->
+    <div class="search-results" id="search-results"></div>
+
+    <!-- Produtos (somente para demonstração) -->
+    <div id="product-list" style="display: none;">
+        <div class="product" data-name="Notebook">Notebook - 25,000 MZN</div>
+        <div class="product" data-name="Celular">Celular - 10,000 MZN</div>
+        <div class="product" data-name="Fone de Ouvido">Fone de Ouvido - 2,000 MZN</div>
+        <div class="product" data-name="Mouse">Mouse - 500 MZN</div>
+        <div class="product" data-name="Teclado">Teclado - 1,000 MZN</div>
+    </div>
+
+    <script>
+        // Referências aos elementos
+        const searchIcon = document.getElementById('search-icon');
+        const searchBar = document.getElementById('search-bar');
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
+        const productList = document.querySelectorAll('#product-list .product');
+
+        // Alterna a visibilidade da barra de pesquisa
+        searchIcon.addEventListener('click', (event) => {
+            event.preventDefault();
+            searchBar.style.display = searchBar.style.display === 'block' ? 'none' : 'block';
+            searchInput.focus();
+        });
+
+        // Busca produtos ao digitar
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.toLowerCase();
+            searchResults.innerHTML = '';
+
+            if (query) {
+                let found = false;
+
+                // Verifica os produtos
+                productList.forEach(product => {
+                    const productName = product.dataset.name.toLowerCase();
+                    if (productName.includes(query)) {
+                        const result = product.cloneNode(true);
+                        searchResults.appendChild(result);
+                        found = true;
+                    }
+                });
+
+                // Se não encontrar produtos, exibe mensagem
+                if (!found) {
+                    searchResults.innerHTML = `<p class="not-found">Produto não encontrado.</p>`;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

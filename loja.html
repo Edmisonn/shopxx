@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja</title>
+    <link rel="stylesheet" href="css/style-loja.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+
+<header>
+    <a href="#" class="logo"><img src="#" alt=""></a>
+    <ul class="navbar">
+        <li><a href="index.html" class="casa">Home</a></li>
+        <li><a href="sobre.html" class="sobre">Sobre nos</a></li>
+        <li><a href="loja.html" class="loja">Loja</a></li>
+        <li><a href="#" class="paginas">Paginas</a></li>
+        <li><a href="#" class="blog">Blog</a></li>
+        <li><a href="#contatos" class="contactos">Contatos</a></li>
+    </ul>
+    <div class="icons">
+        <a href=""><i class="ri-search-line"></i></a>
+        <!---<a href="sobre.html"><i class="ri-user-line"></i></a>---->
+        <a id="userButton"><i class="ri-user-line"></i></a>
+        <a href="Carinho.html"><i class="ri-shopping-cart-line"></i></a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+    </div>
+</header>
+
+
+    <section class="product-categories">
+        <div class="category-buttons">
+            <button class="category-btn active" data-category="all"><a href="#promocao">Todos</a></button>
+            <button class="category-btn" data-category="electronics" ><a href="#electric">Eletrônicos</a></button>
+            <button class="category-btn" data-category="clothing">Roupas</button>
+            <button class="category-btn" data-category="accessories">Acessórios</button>
+        </div>
+    </section>
+
+    <section>
+        <div class="inform"><h4>Produtos em promocao</h4></div>
+        <div class="container">
+            <!-- Product 1 -->
+            <div class="product-card" id="promocao">
+                <img src="icons/produtos/IMG-20250204-WA0014.jpg" alt="imagem do produto">
+                <div class="product-title">Secador ultra potente</div>
+                <div class="riscado" >1200,00MZN</div>
+                <div class="product-price">1000,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)"><i class="ri-shopping-cart-line"></i></button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="icons/produtos/IMG-20250204-WA0015.jpg" alt="imagem do produto">
+                <div class="product-title">Maquina de barbear portatil</div>
+                <div class="riscado" >750,00 MZN</div>
+                <div class="product-price">500,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)"><i class="ri-shopping-cart-line"></i></button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <img src="icons/produtos/IMG-20250204-WA0016.jpg" alt="imagem do produto">
+                <div class="product-title">Lanterna para leitura</div>
+                <div class="riscado" >500,00 MZN</div>
+                <div class="product-price">600,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)"><i class="ri-shopping-cart-line"></i></button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <img src="icons/produtos/" alt="imagem do produto">
+                <div class="product-title">foda-se</div>
+                <div class="riscado" >9999,00 MZN</div>
+                <div class="product-price">9999,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)"><i class="ri-shopping-cart-line"></i></button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="icons/produtos/" alt="imagem do produto">
+                <div class="product-title">foda-se</div>
+                <div class="riscado" >9999,00 MZN</div>
+                <div class="product-price">9999,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)"><i class="ri-shopping-cart-line"></i></button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="icons/produtos/" alt="imagem do produto">
+                <div class="product-title">foda-se</div>
+                <div class="riscado" >9999,00 MZN</div>
+                <div class="product-price">9999,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)"><i class="ri-shopping-cart-line"></i></button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="icons/produtos/" alt="imagem do produto">
+                <div class="product-title">foda-se</div>
+                <div class="riscado" >9999,00 MZN</div>
+                <div class="product-price">9999,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)"><i class="ri-shopping-cart-line"></i></button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="icons/produtos/" alt="imagem do produto">
+                <div class="product-title">foda-se</div>
+                <div class="riscado" >9999,00 MZN</div>
+                <div class="product-price">9999,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)"><i class="ri-shopping-cart-line"></i></button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="icons/produtos" alt="imagem do produto">
+                <div class="product-title">foda-se</div>
+                <div class="riscado" >9999,00 MZN</div>
+                <div class="product-price">9999,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)"><i class="ri-shopping-cart-line"></i></button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="icons/produtos" alt="imagem do produto">
+                <div class="product-title">foda-se</div>
+                <div class="riscado" >9999,00 MZN</div>
+                <div class="product-price">9999,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)"><i class="ri-shopping-cart-line"></i></button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="electric">
+        <div class="inform"><h4>Produtos eletronicos</h4></div>
+        <div class="container">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src="icons/produtos/IMG-20250204-WA0021.jpg" alt="imagem do produto">
+                <div class="product-title">Mini ventilador portatil</div>
+                <div class="product-price">500,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)">Adicionar</button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="icons/produtos/IMG-20250204-WA0020.jpg" alt="imagem do produto">
+                <div class="product-title">Conjunto de aguarelas</div>
+                <div class="product-price">550,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)">Adicionar</button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="icons/produtos/IMG-20250204-WA0017.jpg" alt="imagem do produto">
+                <div class="product-title">Mini balanca portatil</div>
+                <div class="product-price">450,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)">Adicionar</button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="icons/produtos/IMG-20250204-WA0018.jpg" alt="imagem do produto">
+                <div class="product-title">Balanca movel</div>
+                <div class="product-price">650,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)">Adicionar</button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="icons/produtos/IMG-20250204-WA0019.jpg" alt="imagem do produto">
+                <div class="product-title">Balanca movel moderna</div>
+                <div class="product-price">700,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)">Adicionar</button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="icons/produtos/IMG-20250204-WA0022.jpg" alt="imagem do produto">
+                <div class="product-title">Mini aspirador 2 em 1</div>
+                <div class="product-price">1200,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)">Adicionar</button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="icons/produtos/IMG-20250204-WA0023.jpg" alt="imagem do produto">
+                <div class="product-title">Maquina de triturar manual</div>
+                <div class="product-price">400,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)">Adicionar</button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="icons/produtos/IMG-20250204-WA0024.jpg" alt="imagem do produto">
+                <div class="product-title">Tablet magico para crianca</div>
+                <div class="product-price">480,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)">Adicionar</button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="icons/produtos/IMG-20250204-WA0025.jpg" alt="imagem do produto">
+                <div class="product-title">Luz led ceu estrela</div>
+                <div class="product-price">600,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)">Adicionar</button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="icons/produtos/IMG-20250204-WA0026.jpg" alt="imagem do produto">
+                <div class="product-title">Relogio moderno</div>
+                <div class="product-price">600,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn"onclick="adicionarCarrinho(this)">Adicionar</button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="icons/produtos/IMG-20250204-WA0027.jpg" alt="imagem do produto">
+                <div class="product-title">Relogio quartz</div>
+                <div class="product-price">840,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn"onclick="adicionarCarrinho(this)">Adicionar</button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="icons/produtos/IMG-20250204-WA0028.jpg" alt="imagem do produto">
+                <div class="product-title">Balanca movel eletronica</div>
+                <div class="product-price">500,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn"onclick="adicionarCarrinho(this)">Adicionar</button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="icons/produtos/IMG-20250204-WA0029.jpg" alt="imagem do produto">
+                <div class="product-title">Sapataria retratil </div>
+                <div class="product-price">700,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)">Adicionar</button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="icons/produtos/IMG-20250204-WA0030.jpg" alt="imagem do produto">
+                <div class="product-title">Conjunto de solda</div>
+                <div class="product-price">500,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)">Adicionar</button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="icons/produtos/IMG-20250204-WA0031.jpg" alt="imagem do produto">
+                <div class="product-title">Suporte para tv fixo</div>
+                <div class="product-price">500,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)">Adicionar</button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="icons/produtos/IMG-20250204-WA0032.jpg" alt="imagem do produto">
+                <div class="product-title">Suporte para tv movel</div>
+                <div class="product-price">600,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)">Adicionar</button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="#" alt="imagem do produto">
+                <div class="product-title">foda-se</div>
+                <div class="product-price">1199,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)">Adicionar</button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="#" alt="imagem do produto">
+                <div class="product-title">foda-se</div>
+                <div class="product-price">1199,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)">Adicionar</button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="#" alt="imagem do produto">
+                <div class="product-title">foda-se</div>
+                <div class="product-price">1199,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)">Adicionar</button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="#" alt="imagem do produto">
+                <div class="product-title">foda-se</div>
+                <div class="product-price">1199,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)">Adicionar</button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="#" alt="imagem do produto">
+                <div class="product-title">foda-se</div>
+                <div class="product-price">1199,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)">Adicionar</button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="#" alt="imagem do produto">
+                <div class="product-title">foda-se</div>
+                <div class="product-price">1199,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)">Adicionar</button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="#" alt="imagem do produto">
+                <div class="product-title">foda-se</div>
+                <div class="product-price">1199,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)">Adicionar</button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="#" alt="imagem do produto">
+                <div class="product-title">foda-se</div>
+                <div class="product-price">1199,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)">Adicionar</button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="#" alt="imagem do produto">
+                <div class="product-title">foda-se</div>
+                <div class="product-price">1199,00 MZN</div>
+                <div class="product-delivery">Entrega em Aproximadamente 2 Dias Úteis</div>
+                <div class="product-buttons">
+                    <button class="btn" onclick="adicionarCarrinho(this)">Adicionar</button>
+                    <button class="btn buy" onclick="comprar(this)">Comprar</button>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+
+
+
+
+    <footer id="contatos">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h2>Sobre Nós</h2>
+                <p>
+                    Somos uma empresa comprometida em fornecer os melhores produtos e serviços para nossos clientes. 
+                    Siga-nos nas redes sociais para ficar por dentro das novidades!
+                </p>
+                <div class="social-icons">
+                    <a href="#"><i class="bx bxl-facebook"></i></a>
+                    <a href="#"><i class="bx bxl-instagram"></i></a>
+                    <a href="#"><i class="bx bxl-twitter"></i></a>
+                    <a href="#"><i class="bx bxl-linkedin"></i></a>
+                </div>
+            </div>
+    
+            <div class="footer-section links">
+                <h2>Links Úteis</h2>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Sobre Nós</a></li>
+                    <li><a href="#">Serviços</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section contact">
+                <h2>Contato</h2>
+                <ul>
+                    <li><i class="bx bx-envelope"></i> Edimilson@.com</li>
+                    <li><i class="bx bx-phone"></i> +258 84####</li>
+                    <li><i class="bx bx-map"></i> Nkombe, 123, ##### - MP</li>
+                </ul>
+            </div>
+    
+            <div class="footer-section form">
+                <h2>Envie Sua Dúvida</h2>
+                <!--form action="mailto:contato@seusite.com" method="post" enctype="text/plain"-->
+                <form action="https://formspree.io/f/{seu-formulario-id}" method="POST">
+                    <input type="text" name="nome" placeholder="Seu Nome" required>
+                    <input type="email" name="email" placeholder="Seu Email" required>
+                    <textarea name="mensagem" rows="4" placeholder="Sua Mensagem" required></textarea>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 ###. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script/script.js">
+    
+</script>
+</body>
+</html>
